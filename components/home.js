@@ -85,8 +85,7 @@ export default function HomePage() {
             </p>
             {nftDetails?.getAllClaimed.length !==
               nftDetails?.getAllUnClaimed.length &&
-              address &&
-              user && (
+              address && (
                 <button
                   type="button"
                   onClick={handleMintNft}

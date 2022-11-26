@@ -13,11 +13,18 @@ export const Header = () => {
       <div className="flex justify-center mt-3 items-center">
         <ConnectWallet />
       </div>
-      <Link href="/courses">
-        <span className="cursor-pointer inline-flex items-center rounded-md border border-transparent px-6 py-3 text-base font-medium text-primary shadow-s focus:outline-none focus:ring-2 focus:ring-offset-2">
-          My Courses
-        </span>
-      </Link>
+      <div>
+        <Link href="/courses">
+          <span className="cursor-pointer inline-flex items-center rounded-md border border-transparent px-6 py-3 text-base font-medium text-primary shadow-s focus:outline-none focus:ring-2 focus:ring-offset-2">
+            My Courses
+          </span>
+        </Link>
+        <Link href="/add-courses">
+          <span className="cursor-pointer inline-flex items-center rounded-md border border-transparent px-6 py-3 text-base font-medium text-primary shadow-s focus:outline-none focus:ring-2 focus:ring-offset-2">
+            Upload Courses
+          </span>
+        </Link>
+      </div>
     </div>
   );
 };
