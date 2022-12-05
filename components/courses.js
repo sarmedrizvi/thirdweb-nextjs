@@ -1,6 +1,7 @@
 import { useAddress, useContract, useOwnedNFTs } from "@thirdweb-dev/react";
 import { CONTRACT_ADDRESS } from "constant";
 import React, { useState } from "react";
+import TransferNft from "./transfer-nft";
 
 const CourseManager = () => {
   const { contract } = useContract(
@@ -11,8 +12,12 @@ const CourseManager = () => {
   );
   const address = useAddress();
   const [loading, setLoading] = useState();
-  const { data: ownedNFTs, isLoading } = useOwnedNFTs(contract, address);
-  console.log(ownedNFTs, isLoading);
+  const {
+    data: ownedNFTs,
+    isLoading,
+    refetch,
+  } = useOwnedNFTs(contract, address);
+
   const burnNft = async (metadata) => {
     try {
       setLoading(true);
@@ -24,6 +29,7 @@ const CourseManager = () => {
       setLoading(false);
     }
   };
+
   return (
     <div>
       <div className="flex flex-wrap text-white">
@@ -48,6 +54,11 @@ const CourseManager = () => {
                     >
                       Burn
                     </p>
+                    <TransferNft
+                      nft={nft}
+                      setLoading={setLoading}
+                      refetch={refetch}
+                    />
                   </div>
                 ))}
               </div>

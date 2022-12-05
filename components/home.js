@@ -83,19 +83,17 @@ export default function HomePage() {
                 {nftDetails?.getAllUnClaimed.length}
               </strong>
             </p>
-            {nftDetails?.getAllClaimed.length !==
-              nftDetails?.getAllUnClaimed.length &&
-              address && (
-                <button
-                  type="button"
-                  onClick={handleMintNft}
-                  className="inline-flex items-center rounded-md border border-transparent bg-primary px-6 py-3 text-base font-medium text-white shadow-s focus:outline-none focus:ring-2 focus:ring-offset-2"
-                >
-                  Mint
-                </button>
-              )}
+            {nftDetails?.getAllUnClaimed.length && address && (
+              <button
+                type="button"
+                onClick={handleMintNft}
+                className="inline-flex items-center rounded-md border border-transparent bg-primary px-6 py-3 text-base font-medium text-white shadow-s focus:outline-none focus:ring-2 focus:ring-offset-2"
+              >
+                Mint
+              </button>
+            )}
           </div>
-          <div className="flex flex-wrap text-white">
+          <div className="flex flex-wrap text-white mt-5">
             {(nfts || []).map((nft, index) => (
               <div key={index} className="mx-2">
                 <img
